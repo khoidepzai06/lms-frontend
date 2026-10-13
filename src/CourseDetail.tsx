@@ -26,7 +26,7 @@ export default function CourseDetail() {
       const token = localStorage.getItem('token'); // Lấy vé thông hành
       
       // Gọi API xuống Backend (Sếp nhớ check lại xem đường dẫn API bên Backend đã khớp chưa nhé, ví dụ: /api/submissions)
-      await axios.post('http://localhost:3001/api/submissions', {
+      await axios.post('https://lms-backendd-x2ap.onrender.com/api/submissions', {
         courseId: Number(id), // Báo cho Backend biết nộp cho khóa học nào
         link: submissionLink
       }, {
@@ -55,7 +55,7 @@ export default function CourseDetail() {
       // Gọi API chat xuống Backend (Ví dụ: /api/comments hoặc tên gì đó sếp đặt bên Backend)
       // Giả sử sếp tạm thời chưa có API này thì nó sẽ báo lỗi 404, nhưng giao diện vẫn sẽ hiển thị tin nhắn tạm cho sếp coi
       try {
-          await axios.post(`http://localhost:3001/api/courses/${id}/comments`, {
+          await axios.post(`https://lms-backendd-x2ap.onrender.com/api/courses/${id}/comments`, {
             text: chatInput
           }, {
             headers: { 'Authorization': `Bearer ${token}` }

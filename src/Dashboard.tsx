@@ -28,7 +28,7 @@ export default function Dashboard() {
         setIsAdmin(true);
       }
 
-      const response = await axios.get('http://localhost:3001/api/courses', {
+      const response = await axios.get('https://lms-backendd-x2ap.onrender.com/api/courses', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
@@ -49,7 +49,7 @@ export default function Dashboard() {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId') || '1'; // Lấy userId đã lưu hoặc mặc định là '1'
 
-      await axios.post('http://localhost:3001/api/courses', {
+      await axios.post('https://lms-backendd-x2ap.onrender.com/api/courses', {
         title: newTitle,
         description: newDesc
       }, {
@@ -77,7 +77,7 @@ export default function Dashboard() {
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId') || '1'; // Lấy userId
 
-      await axios.delete(`http://localhost:3001/api/courses/${courseId}`, {
+      await axios.delete(`https://lms-backendd-x2ap.onrender.com/api/courses/${courseId}`, {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'user-id': userId // Kẹp thêm trường này luôn
